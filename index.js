@@ -19,7 +19,8 @@ class TextFit extends Component {
   }
 
   setSize() {
-    const maxHeight = this.props.height
+    const maxHeight = this.props.height;
+    if(this.refs.field)
     this.refs.field.measure((x, y, width, height, px, py) =>{
       if (maxHeight < height) {
         if (this.state.size == 0.5) {
@@ -70,12 +71,12 @@ TextFit.defaultProps = {
   style:{},
   maxSize: Infinity,
   onComplete: () => {},
-}
+};
 TextFit.propTypes = {
   children: PropTypes.any.isRequired,
   style: PropTypes.object,
   maxSize: PropTypes.number,
   onComplete: PropTypes.func,
-}
+};
 
 export default TextFit;
